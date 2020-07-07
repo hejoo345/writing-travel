@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>travel list</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" , initial-scale="1">
+
+  <!-- JQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ?></script>
+  <!-- 최신 자바스크립트 -->
+  <script src="js/bootstrap.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+  <!-- 데이트피커  -->
+  <link rel="stylesheet" href="resources/css/plugin/datepicker/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker.css">
+
+  <style>
+    .modal-body {
+      margin: 0 auto;
+    }
+
+    input:read-only {
+      width: 160px;
+    }
+
+    /* input.underline{
+      border: none;
+      box-shadow: 0 1px 0 0 #000;
+      border-radius: 0;
+    } */
+
+    nav a:link {
+      text-decoration: none;
+      color: white;
+    }
+
+    nav a:visited {
+      text-decoration: none;
+      color: white;
+    }
+
+    nav a:active {
+      text-decoration: none;
+      color: white;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .card {
+      border: 1px solid #7CA9D3;
+      /* border: 2px solid black; */
+    }
+
+    .bs {
+      text-align: right;
+      padding-bottom: 7px;
+    }
+
+    .bs .btn {
+      font-size: 12px;
+      border: 1px solid;
+    }
+
+    .datepicker {
+      font-size: 0.875em;
+    }
+
+    .datepicker td,
+    .datepicker th {
+      width: 2.2em;
+      height: 2.2em;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- 상단 네비게이트 바 -->
+  <nav class="navcolor navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-white" href="index.html">Writing Travel</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarResponsive">
+        <ul class="navbar-nav ml-auto navbar-right">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" id="logout_icon" style="color:white;">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 상단 네비게이트 바 끝 -->
+
+
+  <!-- f4f5f9 -->
+  <section>
+    <div class="contentDiv text-center" style="height:400px;">
+      <h3 id="name" style="padding-top:100px;"></h3>
+      <br />
+      <h3>여행을 등록해보세요.</h3>
+      <p style="padding-top:20px;">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">여행추가</button>
+      </p>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="myModal" tabindex="-1">
+    <div class="modal-dialog">
+      <!-- Modal content -->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+
+          <p>
+            어디로 떠나십니까?
+            <input type="text" id="add_where" class="form-control underline" onkeyup="noSpaceForm2(this);">
+          </p>
+          <div style="float: left;width: 50%;padding-right:5px;">
+            <p>출발일 <i class="fa fa-calendar-check"></i>
+              <input type="text" id="depatureDate" class="form-control" readonly>
+            </p>
+
+          </div>
+          <div style="float: left;width: 50%;padding-left:5px;">
+            <p>도착일 <i class="fa fa-calendar-check"></i>
+              <input type="text" id="arrivalDate" class="form-control" readonly>
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" data-dismiss="modal" id="addBtn">Add</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Modal 끝 -->
+
+
+  <section>
+    <div class="container contentDiv">
+      <div class="row" id="here">
+        <!-- 이곳에 카드 추가 -->
+
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <a class="btn btn-outline-light btn-social mx-1" href="#">
+        <i class="fab fa-facebook-square fa-3x"></i>
+      </a>
+      <a class="btn btn-outline-light btn-social mx-1" href="#">
+        <i class="fab fa-twitter fa-3x"></i>
+      </a>
+      <a class="btn btn-outline-light btn-social mx-1" href="#">
+        <i class="fab fa-instagram fa-3x"></i>
+      </a>
+    </div>
+    </div>
+  </footer>
+  <!-- Footer 끝-->
+
+  <!-- Copyright -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; WRITINGTRAVEL 2019</small>
+    </div>
+  </section>
+  <!-- Copyright 끝 -->
+
+  <!-- datepicker 전에 jquery 먼저 로드 -->
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <!-- 위에쓰면 자동 슬라이드가 안되고 밑에 쓰면 메뉴가 안닫힘 -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    var username;
+
+    //로그아웃 이벤트
+    $('#logout_icon').click(function() {
+      //
+      $.ajax({
+        url: "logout.php",
+        type: "POST",
+        success: function(result) {
+          $(location).attr("href", "index.html");
+          //alert(result);
+        }
+      });
+      //
+    });
+    //로그아웃 이벤트 종료
+
+    $(function() { ////function
+
+      var travelArray = new Array();
+
+      var where = new Array();
+      var code = new Array();
+
+      var sy = new Array();
+      var sm = new Array();
+      var sd = new Array();
+
+      var ey = new Array();
+      var em = new Array();
+      var ed = new Array();
+
+      var codeNum;
+
+      ////db에 있는거 화면에 뿌리는 ajax
+      $.ajax({
+        url: 'travelList_.php',
+        type: 'POST',
+        //dataType: 'JSON',
+        contentType: "application/json; charset:UTF-8",
+        success: function(response) {
+          //alert(response.username);
+          var str = response;
+          travelArray = str.split(',');
+          username = travelArray[0];
+          //순서대로 여행개수, {country, code, 시작y,m,d, 끝y,m,d}반복 총 9개
+          document.getElementById('name').innerHTML = username + "님,";
+
+          var j = 2;
+          for (var i = 0; i < travelArray[1]; i++) {
+
+            where[i] = travelArray[j];
+            j++;
+            code[i] = travelArray[j];
+            j++;
+            sy[i] = travelArray[j];
+            j++;
+            sm[i] = travelArray[j];
+            j++;
+            sd[i] = travelArray[j];
+            j++;
+            ey[i] = travelArray[j];
+            j++;
+            em[i] = travelArray[j];
+            j++;
+            ed[i] = travelArray[j];
+            j++;
+
+          }
+          for (var i = 0; i < travelArray[1]; i++) {
+            //  var divadd = document.createElement('div');
+
+            var str = "";
+            str += "<div class='col-md-4 mb-4'>";
+            str += "<div class='card text-center'>";
+
+            str += "<div class='card-body'>";
+
+            str += "<h5 class='card-title' style='font-weight:bold'>";
+            //style='color:white; background-color:#2C3E50;'
+            str += where[i]; //여행지
+            str += "</h5><p></p>";
+
+            str += "<p class='card-text'>"
+            str += sy[i] + '/' + sm[i] + '/' + sd[i]; //출발날짜
+            str += " - ";
+            str += ey[i] + '/' + em[i] + '/' + ed[i]; //도착날짜
+
+            str += "</p></div>";
+
+
+            str += "<div class='container bs'>";
+            str += "<button type='button' class='btn btn-secondary' onclick='travel_delete(";
+            str += code[i] + ")'>";
+            str += "삭제</button>";
+
+            str += "<button type='button' class='btn btn-dark' onclick='travel_edit(";
+            str += code[i] + ")'>";
+            str += "일정 편집</button></div>";
+
+            str += "</div></div>";
+
+            //  divadd.innerHTML = str;
+            var test = $(str);
+            $('#here').append(test);
+          }
+        },
+        error: function(request, status, error) {
+          alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+        }
+
+      })
+      ////ajax
+
+
+      // 출발일 클릭이벤트
+      $('#depatureDate').datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true, //사용자가 날짜 클릭하면 자동으로 닫힘
+        templates: {
+          leftArrow: '&laquo;',
+          rightArrow: '&raquo;'
+        },
+        todayHighlight: true
+      }).on("changeDate", function(e) {
+        var startDate = new Date(e.date.valueOf());
+        $('#arrivalDate').datepicker('setStartDate', startDate);
+      }).on("clearDate", function(e) {
+        $('#arrivalDate').datepicker('setStartDate', null);
+      });
+
+      //도착일 클릭이벤트
+      $('#arrivalDate').datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true, //사용자가 날짜 클릭하면 자동으로 닫힘
+        templates: {
+          leftArrow: '&laquo;',
+          rightArrow: '&raquo;'
+        },
+        todayHighlight: true
+      }).on("changeDate", function(e) {
+        var endDate = new Date(e.date.valueOf());
+        $('#depatureDate').datepicker('setEndDate', endDate);
+      }).on("clearDate", function(e) {
+        $('#depatureDate').datepicker('setEndDate', null);
+      });
+
+
+      //add 클릭이벤트
+      $('#addBtn').click(function() {
+        if ($('#add_where').val() == '') {
+          alert('여행지를 입력해주세요.');
+          $('#addBtn').focus();
+          return false;
+        }
+        if ($('#depatureDate').val() == '') {
+          alert('출발일을 입력해주세요.');
+          $('#depatureDate').focus();
+          return false;
+        }
+        if ($('#arrivalDate').val() == '') {
+          alert('도착일을 입력해주세요.');
+          $('#arrivalDate').focus();
+          return false;
+        }
+
+        var getWhere = $('#add_where').val();
+        var deDay = $('#depatureDate').datepicker('getDate').getDate();
+        var deMonth = $('#depatureDate').datepicker('getDate').getMonth() + 1;
+        var deYear = $('#depatureDate').datepicker('getDate').getFullYear();
+
+        var arDay = $('#arrivalDate').datepicker('getDate').getDate();
+        var arMonth = $('#arrivalDate').datepicker('getDate').getMonth() + 1;
+        var arYear = $('#arrivalDate').datepicker('getDate').getFullYear();
+
+        var deDay2 = deDay;
+        var deMonth2 = deMonth;
+        var deYear2 = deYear;
+
+        var monthNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        var y_arr = new Array();
+        var m_arr = new Array();
+        var d_arr = new Array();
+        var day_arr = new Array();
+        var dayCnt = 0; //날짜 수
+
+        for (var i = 0; i < 500; i++) { //i는 여행 day들
+          var day = i + 1;
+          y_arr[i] = deYear2;
+          m_arr[i] = deMonth2;
+          d_arr[i] = deDay2;
+          day_arr[i] = day;
+
+          if (arYear == deYear2 && arMonth == deMonth2 && arDay == deDay2) {
+            dayCnt = day; //이건 뭘ㄲ아용
+            break;
+          }
+          if (deYear2 % 4 == 0 && deMonth2 == 2 && deDay2 == monthNum[deMonth2 - 1]) {
+            deDay2++;
+            continue;
+          } else if (deYear2 % 4 == 0 && deMonth2 == 2 && deDay2 == monthNum[deMonth2 - 1] + 1) {
+            deDay2 = 1;
+            deMonth2++;
+            continue;
+          } else if (deMonth2 == 12 && monthNum[deMonth2 - 1] == deDay2) {
+            deYear2++;
+            deMonth2 = 1;
+            deDay2 = 0;
+          } else if (deDay2 == monthNum[deMonth2 - 1]) {
+            deDay2 = 0;
+            deMonth2++;
+          }
+
+          deDay2++;
+        }
+
+        var cnt = 1;
+
+        $.ajax({
+          url: 'travel_insert_.php',
+          type: 'POST',
+          data: {
+            getWhere,
+            deDay,
+            deMonth,
+            deYear,
+            arDay,
+            arMonth,
+            arYear
+          },
+          success: function(result) {
+            if (!isNaN(result)) {
+              for (var i = 0; i < dayCnt; i++) {
+                $.ajax({
+                  url: 'day_insert_.php',
+                  type: 'POST',
+                  data: {
+                    codeNum: result,
+                    y: y_arr[i],
+                    m: m_arr[i],
+                    d: d_arr[i],
+                    dd: day_arr[i]
+                  },
+                  success: function(result) {
+
+                    if (!isNaN(result))
+                      cnt++;
+                    else
+                      alert("일정을 등록하는데 실패하였습니다. 다시 시도해주세요!");
+
+                    if (cnt == dayCnt) {
+                      sessionStorage.setItem('CODE', result);
+                      $(location).attr("href", "plan.html");
+                    }
+                  }
+                })
+              } //for
+            }
+          }
+        }) ////
+      }); //add 클릭이벤트 종료
+
+    }); /////function
+
+
+    // 여행 목록 편집 눌렀을 때
+    function travel_edit(e) {
+      //alert(e+"번 편집");
+      sessionStorage.setItem('CODE', e);
+      location.href = "plan.html";
+    }
+    // 여행 목록 삭제 눌렀을 때
+    function travel_delete(e) {
+      var result = confirm('정말 삭제하시겠습니까?');
+
+      if (result) { //yes
+        $.ajax({
+          url: 'travel_delete_.php',
+          type: 'POST',
+          data: {
+            code: e
+          },
+          success: function(result) {
+            if (result == 1) {
+              //alert("성공적으로 삭제하였습니다.");
+              $(location).attr("href", "travel_list.html");
+            } else alert("실행 도중 오류가 생겼습니다. 다시 시도해주세요!");
+          },
+          error: function(request, status, error) {
+            alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+          }
+        })
+      } else { //no
+
+      }
+    }
+
+    //사진 슬라이드
+    $('.carousel').carousel({
+      interval: false
+    });
+
+    //첫 글자 공백 금지
+    function noSpaceForm2(obj) {
+      if (obj.value == " ") {
+        obj.focus();
+        obj.value = obj.value.replace(' ', '');
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" , initial-scale="1">
+
+  <!-- JQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ?></script>
+  <!-- 최신 자바스크립트 -->
+  <script src="js/bootstrap.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+
+  <link rel="stylesheet" href="resources/css/plugin/datepicker/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker.css">
+</head>
+
+<body>
+  <style type="text/css">
+    .button {
+      font-size: 13px;
+      width: 300px;
+      height: 40px;
+      border: 1px solid;
+    }
+
+    .txtbox {
+      font-size: 13px;
+      width: 300px;
+      height: 40px;
+      margin: 0 auto;
+    }
+
+    nav a:link {text-decoration: none; color: white;}
+    nav a:visited {text-decoration: none; color: white;}
+    nav a:active {text-decoration: none; color: white;}
+    nav a:hover {text-decoration: underline; color: white;}
+  </style>
+
+  <!-- 상단 네비게이트 바 -->
+  <nav class="navcolor navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-white" href="index.html"> Writing Travel</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarResponsive">
+        <ul class="navbar-nav ml-auto navbar-right">
+          <li class="nav-item mx-0 mx-lg-1" id="login_icon">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login.html" style="color:white;">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 상단 네비게이트 바 끝 -->
+
+
+
+  <section>
+    <div class="container" style="padding-top: 200px;">
+      <h1 class="text-center">LOGIN</h1>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container contentDiv">
+      <div class="row">
+        <!-- 로그인 아디 비번 텍스트 박스 -->
+        <div class="container">
+          <form calss="form-signin" role="form" method="post" action="">
+            <input type="text" value="" id="login_id" class="txtbox form-control" placeholder="ID" />
+            <input type="password" value="" id="login_pw" class="txtbox form-control" placeholder="PASSWORD" />
+          </form>
+        </div>
+
+        <!-- 로그인 회원가입 버튼 -->
+        <div class="container" style="padding-top: 10px;text-align: center;">
+
+          <button class="button btn btn-dark" type="submit" id="login-submit">Login</button>
+
+        </div>
+        <div class="container" style="padding-top: 10px; padding-bottom: 100px; text-align: center;">
+          <a href="join.html">
+            <button class="button btn btn-outline-dark" type="submit">Join</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-facebook-square fa-3x"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-twitter fa-3x"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-instagram fa-3x"></i>
+          </a>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer 끝-->
+
+
+  <!-- Copyright -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; WRITINGTRAVEL 2019</small>
+    </div>
+  </section>
+  <!-- Copyright 끝 -->
+
+  <!-- datepicker 전에 jquery 먼저 로드 -->
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- 자바스크립트 -->
+  <script type="text/javascript">
+    $(function() {
+
+      $('#login-submit').click(function(e) {
+        e.preventDefault();
+        if ($('#login_id').val() == '') {
+          alert('아이디를 입력하세요');
+          $('#loginId').focus();
+          return false;
+        }
+
+        if ($('#login_pw').val() == '') {
+          alert('비밀번호를 입력하세요');
+          $('#loginPw').focus();
+          return false;
+        }
+
+        //
+        $.ajax({
+          url: 'loginChk.php',
+          type: 'POST',
+          data: {
+            id: $('#login_id').val(),
+            pw: $('#login_pw').val()
+          },
+          success: function(result) {
+              //alert(result);
+              if(result=="1")
+              $(location).attr("href", "index.html");
+              else alert(result);
+          }
+        })
+        //
+      });
+
+    }); ///function
+  </script>
+</body>
+
+</html>

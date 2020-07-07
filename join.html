@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>join</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" , initial-scale="1">
+
+  <!-- JQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ?></script>
+  <!-- 최신 자바스크립트 -->
+  <script src="js/bootstrap.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+
+  <link rel="stylesheet" href="resources/css/plugin/datepicker/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker.css">
+
+</head>
+
+<body>
+  <!-- 스타일 지정 -->
+  <style type="text/css">
+    .ipSize {
+      height: 30px;
+    }
+
+    .button {
+      font-size: 13px;
+      width: 200px;
+      height: 40px;
+      margin: 0 auto;
+    }
+
+    .txtalign {
+      font-weight: bold;
+    }
+    .ct{
+      margin-left: auto;
+      margin-right: auto;
+
+
+    }
+    nav a:link {text-decoration: none; color: white;}
+    nav a:visited {text-decoration: none; color: white;}
+    nav a:active {text-decoration: none; color: white;}
+    nav a:hover {text-decoration: underline; color: white;}
+  </style>
+
+  <!-- 상단 네비게이트 바 -->
+  <nav class="navcolor navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-white" href="index.html">Writing Travel</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarResponsive">
+        <ul class="navbar-nav ml-auto navbar-right">
+          <li class="nav-item mx-0 mx-lg-1" id="login_icon">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login.html" style="color:white;">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 상단 네비게이트 바 끝 -->
+
+  <section>
+    <div class="container" style="padding-top: 200px;">
+      <h1 class="text-center">JOIN</h1>
+    </div>
+  </section>
+
+
+  <!-- 회원가입 인풋 -->
+  <section >
+    <div class="container contentDiv col-md-12">
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="txtalign col-md-6 " style="font-size: 12px">
+          <form role="form">
+            <div class="form-group">
+              <label for="join_name">이름</label>
+              <input type="text" class="ipSize form-control" id="join_name" onkeyup="noSpaceForm(this);" placeholder="이름을 입력하세요.">
+            </div>
+            <div class="form-group">
+              <label for="join_id">아이디</label>
+              <input type="text" class="ipSize form-control" id="join_id" onkeyup="noSpaceForm(this);" placeholder="아이디를 입력하세요.">
+            </div>
+            <div class="form-group">
+              <label for="join_pw">비밀번호</label>
+              <input type="password" class="ipSize form-control" id="join_pw" onkeyup="noSpaceForm(this);" placeholder="비밀번호를 입력하세요.">
+            </div>
+            <div class="form-group">
+              <label for="join_pw">비밀번호 확인 <font id="chkNotice" size="2"></font></label>
+              <input type="password" class="ipSize form-control" id="join_pw_chk" onkeyup="noSpaceForm(this);" placeholder="비밀번호를 한번 더 입력하세요.">
+            </div>
+          </form>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="padding-bottom:180px;">
+      <div class="container" style="text-align: center;">
+        <button type="submit" id="join_submit" class="button btn btn-dark">회원가입</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-facebook-square fa-3x"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-twitter fa-3x"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-instagram fa-3x"></i>
+          </a>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer 끝-->
+
+
+  <!-- Copyright -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; WRITINGTRAVEL 2019</small>
+    </div>
+  </section>
+  <!-- Copyright 끝 -->
+
+
+
+  <!-- datepicker 전에 jquery 먼저 로드 -->
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <!-- 위에쓰면 자동 슬라이드가 안되고 밑에 쓰면 메뉴가 안닫힘 -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+  <!-- 자바스크립트 -->
+  <script type="text/javascript">
+    $(function() {
+      // 회원가입처리
+      $('#join_pw').keyup(function() {
+        $('#chkNotice').html('');
+      });
+
+      $('#join_pw_chk').keyup(function() {
+        if ($('#join_pw').val() != $('#join_pw_chk').val()) {
+          $('#chkNotice').html('비밀번호가 일치하지 않습니다.');
+          $('#chkNotice').attr('color', '#f82a2aa3');
+        } else {
+          $('#chkNotice').html('');
+          //$('#chkNotice').attr('color','#1999894b3');
+        }
+      });
+
+      $('#join_submit').click(function(e) {
+        e.preventDefault();
+
+        if ($("#join_name").val() == '') {
+          alert('이름 항목은 필수 입력값입니다.');
+          $("#join_name").focus();
+          return false;
+        }
+
+        if ($("#join_id").val() == '') {
+          alert('아이디 항목은 필수 입력값입니다.');
+          $("#join_id").focus();
+          return false;
+        }
+
+        if ($("#join_pw").val() == '') {
+          alert('비밀번호 항목은 필수 입력값입니다.');
+          $("#join_pw").focus();
+          return false;
+        }
+
+        if ($("#join_pw_chk").val() == '') {
+          alert('비밀번호 항목은 필수 입력값입니다.');
+          $("#join_pw_chk").focus();
+          return false;
+        }
+
+        if ($("#join_pw").val() != $("#join_pw_chk").val()) {
+          alert('비밀번호가 일치하지 않습니다.')
+          return false;
+        }
+
+        $.ajax({
+            url: "register.php",
+            type: "POST",
+            data: {name:$("#join_name").val(),
+                  id:$("#join_id").val(),
+                  pw:$("#join_pw").val()
+            },
+            success: function (result) {
+              //1 성공 -1 있는 아ㅣ디
+              if(result=="1") {$(location).attr("href","login.html");
+              alert("회원가입이 완료되었습니다.");}
+              else if(result=="-1") alert("이미 존재하는 아이디입니다.");
+            }
+        });
+      });
+    });
+    //공백 사용 금지
+    function noSpaceForm(obj){
+      var str_space = /\s/; //공백체크
+      if(str_space.exec(obj.value)){
+        obj.focus();
+        obj.value = obj.value.replace(' ','');
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>

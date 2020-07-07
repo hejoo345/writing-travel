@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width", initial-scale="1">
+  <title></title>
+  <!-- <link rel="stylesheet" href="css/bootstrap.css">
+  <link href="/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" <link rel="stylesheet" href="resources/css/plugin/datepicker/bootstrap-datepicker.css">    <script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style2.css"> -->
+  <!-- JQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ?></script>
+  <!-- 최신 자바스크립트 -->
+  <script src="js/bootstrap.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" <link rel="stylesheet" href="resources/css/plugin/datepicker/bootstrap-datepicker.css">    <script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="resources/css/plugin/datepicker/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="bootstrap-datepicker-master/dist/css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="plan.css">
+</head>
+<body>
+  <style type="text/css">
+  nav a:link {
+    text-decoration: none;
+    color: white;
+  }
+
+  nav a:visited {
+    text-decoration: none;
+    color: white;
+  }
+
+  nav a:active {
+    text-decoration: none;
+    color: white;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+  </style>
+
+  <!-- 상단 네비게이트 바 -->
+  <nav class="navcolor navbar navbar-expand-lg text-uppercase navbar-fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-white" href="index.html">Writing Travel</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false">
+        <i class="fa fa-bars fa-2x"></i>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarResponsive">
+        <ul class="navbar-nav ml-auto navbar-right">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" id="logout_icon" style="color:white;">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 상단 네비게이트 바 끝 -->
+
+  <!-- 내부 내용 일 차, 카드 시작-->
+  <section style="padding-top: 70px; padding-bottom: 70px;">
+    <div class="container col-md-offset-3 col-md-6">
+      <p id="country" style="display:inline; width:1200px;"><i class="fa fa-plane" aria-hidden="true" style="display:inline; float: left; width:50px;"></i><div id="countryname" style="display:inline; float: left; width:300px;font-size: 30px; color: #2C3E50; "></div></p>
+      <button type="button" id="add_plan" class="float-right btn btn-outline-primary slideup" href="plan_add.html" onclick="window.open
+      'plan_add.html','_blank','width=400px, height=600px, toolbars=no, scrollbar=no'); return false;">+</button><br><br>
+      <div id="innerID">
+        <!-- 데이와 돈 삽입 -->
+        <!-- <div id="day_And_won"></div> -->
+        <!-- 카드삽입 -->
+        <!-- <div id="card_insert"></div> -->
+      </div>
+    </div>
+  </section>
+  <!-- 내부 내용 일 차, 카드 끝-->
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <a class="btn btn-outline-light btn-social mx-1" href="#">
+        <i class="fab fa-facebook-square fa-3x"></i>
+      </a>
+      <a class="btn btn-outline-light btn-social mx-1" href="#">
+        <i class="fab fa-twitter fa-3x"></i>
+      </a>
+      <a class="btn btn-outline-light btn-social mx-1" href="#">
+        <i class="fab fa-instagram fa-3x"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+<!-- Footer 끝-->
+
+
+<!-- Copyright -->
+<section class="copyright py-4 text-center text-white">
+  <div class="container">
+    <small>Copyright &copy; WRITINGTRAVEL 2019</small>
+  </div>
+</section>
+<!-- Copyright 끝 -->
+
+<!-- datepicker 전에 jquery 먼저 로드 -->
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="bootstrap-datepicker-master/dist/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<!-- 위에쓰면 자동 슬라이드가 안되고 밑에 쓰면 메뉴가 안닫힘 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- 자바스크립트 -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript">
+//planDB values
+var code = sessionStorage.getItem('CODE');
+var plCnt;
+var day_day = new Array();
+var place = new Array();
+var plnum = new Array();
+var tit = new Array();
+var pic = new Array();
+var txt = new Array();
+var rod = new Array();
+var money = new Array();
+var dayCnt; var country;
+//
+$.ajax({
+  url: "plan_fetch_.php",
+  type: "POST",
+  data: {
+    code: code
+  },
+  success: function(result) {
+    //alert(result);
+    temp = result.split(",");
+    country = temp[0];
+    dayCnt = temp[1];
+    plCnt = temp[2];
+    //alert(country+"/ day"+ dayCnt+"/ plCnt"+ plCnt,"/");
+    var j = 3;
+    for (var i = 0; i < plCnt; i++) {
+      day_day[i] = temp[j]; j++;
+      place[i] = temp[j]; j++;
+      plnum[i] = temp[j]; j++;
+      tit[i] = temp[j]; j++;
+      pic[i] = temp[j]; j++;
+      txt[i] = temp[j]; j++;
+      rod[i] = temp[j]; j++;
+      money[i] = temp[j]; j++;
+      // alert(day_day[i]+ "  "+ place[i]+"  "+plnum[i]+"   "+tit[i]+"   "+ pic[i]+"  "+ txt[i]+"  "+ rod[i]+"  "+money[i]);
+      // document.getElementById('countryname').append(country);
+    }
+   //여행지 이름
+    document.getElementById('countryname').innerHTML= country;
+
+    //일 차, 카드
+    for(var s=0;s<dayCnt;s++){
+      //일 차 출력
+      var chk=0;//일 차의 첫 째인가 확인
+      var startfind=0; var endfind=0;
+      var findDay=new Array(); var fdIdx=0; var fdlen=0;
+
+      var printDay=s+1;
+      var infoAndCard = "";//데이와 카드 담을 변수
+      infoAndCard += "<div id='showday'>Day";
+      infoAndCard += printDay + '</div>';
+
+      //해당 일 차에 해당하는 일정 시작 및 끝 인덱스 찾기
+      for(var fd=0;fd<plCnt;fd++){
+        if(day_day[fd]==s+1){
+          findDay[fdIdx++]=fd;
+        }
+      }
+      fdlen=findDay.length;
+
+      startfind=findDay[0]; endfind=findDay[fdlen-1];
+
+      for(var k=0;k<plCnt;k++){
+        //카드 출력
+        if(day_day[k]==s+1){
+
+          //두 번 일정부터는 초기화 필요
+          if(chk==1)  var infoAndCard="";
+
+          if(k==startfind){
+            infoAndCard += "<div id='cards'>";
+          }
+
+          //카드
+          infoAndCard += '<div class="card"><div id="card_insert"><div class="card-body"><div class="row"><div class="col-md-3"><p id=place class="text-center">';
+          infoAndCard += place[k] + '</p>';
+          infoAndCard += '<img src="img/plan_img0.jpg" id=pl_pic class="img img-rounded img-fluid"/><br><br></div>';
+          infoAndCard += '<div class="col-md-9"><p><a class="float-left" id=pl_name>';
+          infoAndCard += tit[k] + '</a></p><br>';
+          infoAndCard += '<div class="clearfix"></div><div id=pl_txt><p>';
+          infoAndCard += txt[k] + '</p></div><p>';
+          infoAndCard += '<a class="float-right btn btn-outline-primary ml-2" id="editBtn" onclick="GoEditPage(';
+          infoAndCard += plnum[k] + ')">';
+          infoAndCard += '<i class="fa fa-pencil"></i> edit</a>';
+          infoAndCard += '<a class="float-right btn text-white btn-success"';
+          infoAndCard += 'onclick="GoInsertMoneyPage(';
+          // str += '"input_money.html","_blank","width=400px, height=600px, toolbars=no, scrollbar=no"); return false;">';
+          infoAndCard += code[k] + ')">';
+          infoAndCard += ' <i class="fa fa-money"></i> ';
+          infoAndCard += money[k] + '</a>';
+          infoAndCard += '<a class="float-right btn text-white btn-danger mr-2" id="delBtn" onclick="chkDel()"><i class="fa fa-trash-o"></i> 삭제</a>';
+          infoAndCard += '</p></div></div></div>';
+
+          // var test=$(str);
+          // $('#card_insert').append(test);
+          if(k==endfind){
+            infoAndCard += "</div>";
+          }
+
+          var _insert = $(infoAndCard);
+          $('#innerID').append(_insert);
+          chk=1;
+        }
+      }//for k
+    }//for s
+    // infoAndCard += '</div>';
+
+    // var _insert = $(infoAndCard);
+    // $('#innerID').append(_insert);
+  }
+  ,
+  error: function(request, status, error) {
+    alert("planDB fatch failed code:" + "\n" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+  }
+});
+
+//add 버튼 이벤트
+$('#add_plan').click(function(){
+  var url = "plan_add.html";
+  var name = "plan add";
+  var option = "width = 400, height = 600, location = no"
+  window.open(url, name, option);
+})
+
+//로그아웃 이벤트
+$('#logout_icon').click(function() {
+  $.ajax({
+    url: "logout.php",
+    type: "POST",
+    success: function(result) {
+      $(location).attr("href", "index.html");
+      alert(result);
+    }
+  });
+  //
+});
+//로그아웃 이벤트 종료
+$(function(){
+  //id, code, day_day, place, pl_num, pl_tit,pl_pic, pl_txt, pl_rod, money
+
+})
+
+// 편집버튼 이벤트
+function GoEditPage(e){
+  //alert(e+"번 편집");
+  location.href="edit.html?"+e;
+
+
+}
+
+// 돈버튼 이벤트
+function GoInsertMoneyPage(e){
+  // str += '"input_money.html","_blank","width=400px, height=600px, toolbars=no, scrollbar=no"); return false;">';
+  //alert(e+"번 편집");
+  var url="input_money.html";
+  window.open(url,"","width=400px,height=600px");
+}
+
+// 삭제버튼 이벤트
+function chkDel(){
+
+}
+
+// drag&drop 함수
+$(function() {
+$("#innerID").sortable({
+// 드래그 앤 드롭 단위 css 선택자
+connectWith: ".column",
+// 움직이는 css 선택자
+// handle: ".card-header",
+// 움직이지 못하는 css 선택자
+ cancel: "#showday",
+// 이동하려는 location에 추가 되는 클래스
+placeholder: "card-placeholder"
+});
+// 해당 클래스 하위의 텍스트 드래그를 막는다.
+// $( ".column .card" ).disableSelection();
+});
+
+
+
+</script>
+</body>
+</html>
