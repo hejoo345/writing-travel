@@ -4,4 +4,4 @@
 
 맡은 파트 : 로그인, 회원가입, 홈 화면, 여행 리스트 출력 페이지
 
-html, css, jQuery 사용
+html, css, jQuery, bootstrap 사용
